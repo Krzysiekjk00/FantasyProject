@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block basic %}Zawodnicy drużyny {{ team }}{% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block interior %}
+<table class="table table-hover table-striped">
+  <tr>
+    <th>Imię i nazwisko zawodnika</th>
+    <th>Pozycja</th>
+    <th>Punkty ogółem</th>
+    <th>Opcje</th>
+  </tr>
+  {% for player in players %}
+    <tr>
+      <td>{{ player }}</td>
+      <td>{{ player.get_position_display }}</td>
+      <td>{{ player.overall_points }}</td>
+      <td>
+        {% if user.is_superuser %}
+        <a href="{% url 'update_player' pk=player.id %}"><button>Edytuj dane zawodnika</button></a>
+        <a href="{% url 'delete_player' pk=player.id %}"><button>Usuń zawodnika</button></a>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

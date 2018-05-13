@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% block basic %}Tworzenie nowej drużyny użytkownika {{ user }}{% endblock %}
+{% block style %}
+{% endblock %}
+{% block interior %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label>
+        <h3>Nazwa drużyny:</h3>
+        <input type="text" name="user_team_name" required>
+    </label>
+    <br>
+    <h3>Wybierz zawodników</h3>
+    <div class="col-lg-4">
+        <h4>Bramkarze:</h4>
+        <label>
+            Bramkarz 1:
+            <select name="player_1" required>
+                {% for goalkeeper in goalkeepers %}
+                    <option value="{{ goalkeeper.id }}">{{ goalkeeper }} {{ goalkeeper.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Bramkarz 2:
+            <select name="player_2" required>
+                {% for goalkeeper in goalkeepers %}
+                    <option value="{{ goalkeeper.id }}">{{ goalkeeper }} {{ goalkeeper.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="col-lg-4">
+        <h4>Obrońcy:</h4>
+        <label>
+            Obrońca 1:
+            <select name="player_3" required>
+                {% for defender in defenders %}
+                    <option value="{{ defender.id }}">{{ defender }} {{ defender.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Obrońca 2:
+            <select name="player_4" required>
+                {% for defender in defenders %}
+                    <option value="{{ defender.id }}">{{ defender }} {{ defender.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Obrońca 3:
+            <select name="player_5" required>
+                {% for defender in defenders %}
+                    <option value="{{ defender.id }}">{{ defender }} {{ defender.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Obrońca 4:
+            <select name="player_6" required>
+                {% for defender in defenders %}
+                    <option value="{{ defender.id }}">{{ defender }} {{ defender.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Obrońca 5:
+            <select name="player_7" required>
+                {% for defender in defenders %}
+                    <option value="{{ defender.id }}">{{ defender }} {{ defender.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="col-lg-4">
+        <h4>Pomocnicy:</h4>
+        <label>
+            Pomocnik 1:
+            <select name="player_8" required>
+                {% for midfielder in midfielders %}
+                    <option value="{{ midfielder.id }}">{{ midfielder }} {{ midfielder.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Pomocnik 2:
+            <select name="player_9" required>
+                {% for midfielder in midfielders %}
+                    <option value="{{ midfielder.id }}">{{ midfielder }} {{ midfielder.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Pomocnik 3:
+            <select name="player_10" required>
+                {% for midfielder in midfielders %}
+                    <option value="{{ midfielder.id }}">{{ midfielder }} {{ midfielder.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Pomocnik 4:
+            <select name="player_11" required>
+                {% for midfielder in midfielders %}
+                    <option value="{{ midfielder.id }}">{{ midfielder }} {{ midfielder.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Pomocnik 5:
+            <select name="player_12" required>
+                {% for midfielder in midfielders %}
+                    <option value="{{ midfielder.id }}">{{ midfielder }} {{ midfielder.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="col-lg-4">
+        <h4>Napastnicy:</h4>
+        <label>
+            Napastnik 1:
+            <select name="player_13" required>
+                {% for striker in strikers %}
+                    <option value="{{ striker.id }}">{{ striker }} {{ striker.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Napastnik 2:
+            <select name="player_14" required>
+                {% for striker in strikers %}
+                    <option value="{{ striker.id }}">{{ striker }} {{ striker.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br>
+        <label>
+            Napastnik 3:
+            <select name="player_15" required>
+                {% for striker in strikers %}
+                    <option value="{{ striker.id }}">{{ striker }} {{ striker.overall_points }} pkt</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <br>
+    <br>
+    <div class="col-lg-12">
+      <input type="submit" value="Zapisz zespół">
+    </div>
+
+</form>
+{% endblock %}

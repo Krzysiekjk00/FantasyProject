@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Strona główna</title>
+</head>
+<body>
+  {% if user.is_superuser %}
+    <div class="col-lg-12">
+        <h2>Menu Admina</h2>
+        <p>
+            <a href="{% url 'add_real_team' %}"><button>Wprowadź drużynę</button></a>
+            <a href="{% url 'add_match_1' %}"><button>Dodaj mecz</button></a>
+            <!-- <a href="{% url 'create_activity' %}"><button>Dodaj punktowaną czynność</button></a> -->
+        </p>
+    <hr>
+    </div>
+  {% endif %}
+  <div class="col-lg-6">
+      <h2>Menu użytkownika</h2>
+      <p>
+          <a href="{% url 'all_real_teams' %}"><button>Baza wiedzy</button></a>
+      </p>
+      <p>
+          <a href="{% url 'create_user_team' pk=user.id %}"><button>Stwórz nowy własny zespół</button></a>
+      </p>
+  </div>
+  <div class="col-lg-6">
+  <h2>Ranking zespołów użytkowników</h2>
+  <table class="table table-hover table-striped">
+    <tr>
+        <th>Nazwa zespołu</th>
+        <th>Zdobyte punkty</th>
+    </tr>
+  {% for team in user_teams %}
+    <tr>
+        <td><a href="{% url 'user_team_info' pk=team.id %}">{{ team.name }}</a></td>
+        <td><span class="badge">{{ team.team_points }} pkt</span></td>
+    </tr>
+  {% endfor %}
+  </table>
+  </div>
+  <footer class="col-lg-12">
+    <hr>
+      {% if user.is_authenticated %}
+          <p>Jesteś zalogowany jako {{ user.username }}</p>
+          <p><a href="{% url 'logout' %}">Wyloguj</a></p>
+      {% endif %}
+  </footer>
+</body>
+</html>

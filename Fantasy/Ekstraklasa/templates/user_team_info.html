@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block basic %}Drużyna {{ team }} {% endblock%}
+{% block interior %}
+    <h2>{{ team }} | {{ team.team_points }} pkt</h2>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>Pozycja</th>
+            <th>Nazwisko</th>
+            <th>Punkty ogólem</th>
+        </tr>
+        {% for player in team.team_players.all %}
+        <tr>
+            <td>{{ player.get_position_display }}</td>
+            <td>{{ player }}</td>
+            <td>{{ player.overall_points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

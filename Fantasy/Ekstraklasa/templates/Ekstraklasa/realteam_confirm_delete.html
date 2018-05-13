@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block basic %}Potwierdzenie usunięcia zamówienia{% endblock %}
+{% block interior %}
+  <p class="alert alert-warning"><strong>Uwaga!</strong> Czy na pewno chcesz usunąć zespół {{ realteam }}?</p>
+  <form method="POST" action="">
+      {% csrf_token %}
+      <input type="submit" value="Potwierdź">
+  </form>
+{% endblock %}

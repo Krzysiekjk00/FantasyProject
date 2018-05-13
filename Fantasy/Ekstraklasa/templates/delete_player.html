@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block basic %}Usunięcie zawodnika {{ player.id }}{% endblock %}
+{% block interior %}
+    <p>
+        Czy na pewno chcesz usunąć zawodnika {{ player }}?
+    </p>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <input type="submit" value="Potwierdź">
+  </form>
+{% endblock %}

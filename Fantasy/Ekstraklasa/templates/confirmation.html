@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Potwierdzenie założenia konta</title>
+</head>
+<body>
+    <p class="col-lg-6 alert alert-success">
+        <strong>Sukces!</strong> Konto użytkownika o nazwie {{ new_user.username }} zostało założone pomyślnie!
+        <a href="{% url 'login' %}"><button>Przejdź do logowania</button></a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'base_form.html' %}
+{% block title %}
+Panel logowania
+{% endblock %}
+{% block button %}Zaloguj{% endblock %}
+{% block content %}
+<hr>
+<a href="{% url 'new_user' %}"><button>Załóż konto</button></a>
+{% endblock %}
